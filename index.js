@@ -39,6 +39,7 @@ const sayilar = [
 function KareninAlani(kenaruzunlugu) {
   return kenaruzunlugu * kenaruzunlugu;
 }
+console.log(KareninAlani(10));
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -50,9 +51,10 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return 2 * pi * yaricap;
 }
+console.log(CemberinCevresi(5));
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -64,9 +66,10 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap, pi) {
+  return yaricap * yaricap * pi;
 }
+console.log(CemberinAlani(15));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -98,28 +101,34 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+for ( let i = 0; i < sayilar.length; i++) {
+  if(sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+}
 
-/* kodlar buraya */
-
+for (let j = 0; j < sayilar.length; i++) {
+  if(sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+}
 // 3b çözümü:
-
-/* kodlar buraya */
-
+ucetambolunenler = sayilar.forEach((sayi) => sayi % 3 === 0 ? ucetambolunenler += sayi : null);
 // 3c çözümü:
-
-/* kodlar buraya */
-
+ucebolunenlerintoplami = ucetambolunenler.reduce((a, arr) => a + arr, 0);
 // 3d çözümü
-
-/* kodlar buraya */
-
+besyuzdenkucuksayilar = sayilar.filter((s) => s < 500);
 // 3e çözümü
-
-/* kodlar buraya */
-
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b);
 // 3f çözümü
-
-/* kodlar buraya */
+let tekrarEdenler = {};
+for (let i = 0; i < sayilar.length; i++) {
+  if ( sayilar.indexOf(sayilar[i]) !== i && !siralisayilar.includes(sayilar[i])) {
+    tekrarEdenler.rakam = sayilar[i];
+    tekrarEdenler.tekrarSayisi ++;
+  }
+  return `${tekrarEdenler.rakam} sayısı ${tekrarEdenler.tekrarSayisi} kere tekrar edilmiştir.`
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
